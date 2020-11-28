@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>매장</title>
+    <style media="screen">
+      * {padding: 0; margin: 0;}
+      html, body {height: 100%;}
+      #wrapper {z-index: -1; background-image: url('image/back.jpg'); overflow: auto; background-repeat: repeat; width: 100%; height: 100%; top:0; left:0; bottom: 0; right: 0;}
+      nav {text-align: center; display: block; margin-left: 78%; margin-top: 2%; border-radius: 10px; width: 100px; height: 20px; padding: 5px 5px;}
+      #main {border-radius: 100px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 10px 38px; text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14); box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2); text-decoration: none; color: white;  background: #e81216;}
+      #main:active {background: #B70000;}
+      #title {margin: 20px auto 0; text-align: center; font-size: 30px; font-weight: bold;}
+      #tbl {margin:15px auto; width: 90%; background: rgba(255, 255, 255, 0.5);}
+      #tbl, #tbl th , #tbl td{border-width: 1px 0; border-collapse: collapse; text-align: center; padding:10px 4px;}
+      #tbl th{background-color: #DCDCDC; font-size: 1.1em; color: #000; border-width:1px 0;}
+      #tbl td{border-bottom: 1px solid silver; padding: 12px 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav>
+        <a href="main.jsp" id="main">메&nbsp인</a>
+      </nav>
+      <div id="title">
+        <p>매장&nbsp정보</p>
+      </div>
+      <table id="tbl">
+        <tr>
+          <th>No</th>
+          <th>제목</th>
+          <th>작성일</th>
+          <th>작성자</th>
+          <th>조회수</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>삼겹살 특가행사 12월 15일 까지</td>
+          <td>2019.12.01</td>
+          <td>운영자</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>신년맞이 50%세일</td>
+          <td>2019.12.01</td>
+          <td>운영자</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>아이를 찾습니다.</td>
+          <td>2019.12.03</td>
+          <td>고객관리과</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>11거 1111 불법주차 차량 빼주세요</td>
+          <td>2019.12.04</td>
+          <td>주차 관리과</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>저녁 8시부터 10시까지 한우 세일</td>
+          <td>2019.12.05</td>
+          <td>운영자</td>
+          <td>30</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
