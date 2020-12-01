@@ -22,8 +22,8 @@ var pool = mysql.createPool({
         });
 
 // Main
-app.listen(1337, function() {
-    console.log("Server listening on port 1337" );
+app.listen(config.port, function() {
+    console.log("Server listening on port %d", config.port);
 });
 
 // Router

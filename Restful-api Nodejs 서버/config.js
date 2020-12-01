@@ -1,10 +1,10 @@
 var config = {
     port: 3000,
     mysql: {
-        host: "localhost",
-        port: 3306,
-        db: "cart",
-        username: "winuser",
+        host: "192.168.41.97",
+        port: 3308,
+        db: "rfid",
+        username: "root",
         password: "1234",
     }
 }

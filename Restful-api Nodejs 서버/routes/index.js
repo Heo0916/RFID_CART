@@ -7,7 +7,7 @@ module.exports = function(app, pool) {
     app.post("/cart1", function(req, res) {
     var result = {};
 	var field_values = null;
-    var item01 = null;
+    var item01 = null; //상품
     var item02 = null;
     var item03 = null;
     var item04 = null;
@@ -17,7 +17,7 @@ module.exports = function(app, pool) {
     var item08 = null;
     var item09 = null;
     var item10 = null;
-    var cart01 = null;
+    var cart01 = null; //카트
     var cart02 = null;
     var field_values2 = null;
     var jarray = null;
@@ -25,8 +25,8 @@ module.exports = function(app, pool) {
         function(callback) {
         field_values = mysql.escape(req.body.field_values);
         field_values2 = req.body.field_values;
-        jarray = field_values2.split("\r\n");
-        jarray.push('1234');
+        jarray = field_values2.split("\r\n"); //띄워쓰기, 줄바꿈 없앰
+        jarray.push('1234'); //자리맞춤용
         jarray.push('1234');
         jarray.push('1234');
         jarray.push('1234');
@@ -37,7 +37,7 @@ module.exports = function(app, pool) {
         jarray.push('1234');
         jarray.push('1234');
             console.log(jarray);
-        item01 = jarray[0].substr(0,4);
+        item01 = jarray[0].substr(0,4); //필요한 문자열만 가져감
         item02 = jarray[1].substr(0,4);
         item03 = jarray[2].substr(0,4);
         item04 = jarray[3].substr(0,4);
@@ -47,7 +47,7 @@ module.exports = function(app, pool) {
         item08 = jarray[7].substr(0,4);
         item09 = jarray[8].substr(0,4);
         item10 = jarray[9].substr(0,4);
-        var test01 = jarray[0].indexOf('ca01');
+        var test01 = jarray[0].indexOf('ca01');//카트번호를 넣어준다
         if (test01==0)
             {
                 cart01='ca01';
@@ -173,7 +173,8 @@ module.exports = function(app, pool) {
                     
                         sql= 'insert into '+cart01+' select * from goods where tag = '+ mysql.escape(user[0])+';';
                     // title 정보를 DB에 넣기 위한 SQL문 준비
-
+                    //cart01에는 상품이 1번카트에 들어있으면 ca01이 2번카트에 들어있으면 ca02가 들어간다
+                    //상품의 태그번호와 같은 상품의 이름 가격을 불러와 카트 1에 넣는다
                     console.log(req.body);
                     console.log(req.body.field_values);
                     console.log("SQL: " + sql);
@@ -200,7 +201,7 @@ module.exports = function(app, pool) {
         });
     });
 
-    app.get("/list/1", function(req, res) {
+    app.get("/list/1", function(req, res) { //리스트 보는용
         var result = {};
 	var id = req.params.id;
         // db에 연결하여 sql 수행
@@ -219,23 +220,7 @@ module.exports = function(app, pool) {
         });
     });
 
-    app.get("/conf/:id", function(req, res) {
-        var result = {};
-	var id = req.params.id;
-        // db에 연결하여 sql 수행
-        pool.getConnection(function(err, conn) {
-            var sql = "SELECT relay ,relay1, relay2, relay3, relay4, relay5 from relay1 order by num desc limit 1;";
-            conn.query(sql, function(err, rows) {
-                var result = returnResult(err, res);
-                if (rows) {
-                    result = rows;
-                }
-                conn.release();
-                res.send(result);
-            });
-        });
-    });
-}
+    
 
 
 var returnResult = function(err, res) {
@@ -249,4 +234,5 @@ var returnResult = function(err, res) {
         result.message = "Success";
     }
     return result;
+}
 }
